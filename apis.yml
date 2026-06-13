@@ -30,6 +30,8 @@ apis:
     properties:
       - type: Documentation
         url: https://bored-api.appbrewery.com/
+      - type: OpenAPI
+        url: openapi/bored-api-openapi.yml
       - type: Plans
         url: plans/bored-api-plans-pricing.yml
       - type: RateLimits

@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "bored": "https://bored-api.appbrewery.com/vocab#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Activity": "bored:Activity",
+
+    "activity": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "availability": {
+      "@id": "bored:availability",
+      "@type": "xsd:decimal"
+    },
+    "type": {
+      "@id": "schema:category",
+      "@type": "xsd:string"
+    },
+    "participants": {
+      "@id": "schema:maximumAttendeeCapacity",
+      "@type": "xsd:integer"
+    },
+    "price": {
+      "@id": "bored:relativePrice",
+      "@type": "xsd:decimal"
+    },
+    "accessibility": {
+      "@id": "schema:accessibilityFeature",
+      "@type": "xsd:string"
+    },
+    "duration": {
+      "@id": "schema:timeRequired",
+      "@type": "xsd:string"
+    },
+    "kidFriendly": {
+      "@id": "schema:isFamilyFriendly",
+      "@type": "xsd:boolean"
+    },
+    "link": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "key": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/bored-api/main/json-schema/activity.json",
+  "title": "Activity",
+  "description": "An activity suggestion returned by the Bored API",
+  "type": "object",
+  "required": [
+    "activity",
+    "availability",
+    "type",
+    "participants",
+    "price",
+    "accessibility",
+    "duration",
+    "kidFriendly",
+    "link",
+    "key"
+  ],
+  "properties": {
+    "activity": {
+      "type": "string",
+      "description": "Human-readable description of the activity",
+      "minLength": 1,
+      "examples": ["Learn Express.js", "Go for a walk", "Cook a new recipe"]
+    },
+    "availability": {
+      "type": "number",
+      "description": "Availability score from 0.0 (hard to access) to 1.0 (universally available)",
+      "minimum": 0,
+      "maximum": 1,
+      "examples": [0.0, 0.2, 0.5, 0.8, 1.0]
+    },
+    "type": {
+      "$ref": "#/$defs/ActivityType"
+    },
+    "participants": {
+      "$ref": "#/$defs/ParticipantCount"
+    },
+    "price": {
+      "type": "number",
+      "description": "Relative cost from 0.0 (free) to 1.0 (expensive)",
+      "minimum": 0,
+      "maximum": 1,
+      "examples": [0, 0.1, 0.3, 0.8, 1.0]
+    },
+    "accessibility": {
+      "type": "string",
+      "description": "Human-readable description of accessibility level",
+      "examples": [
+        "Few challenges",
+        "Some challenges",
+        "Major challenges"
+      ]
+    },
+    "duration": {
+      "type": "string",
+      "description": "Rough time estimate for completing the activity",
+      "enum": ["minutes", "hours", "days", "weeks"],
+      "examples": ["minutes", "hours"]
+    },
+    "kidFriendly": {
+      "type": "boolean",
+      "description": "Whether the activity is appropriate for children",
+      "examples": [true, false]
+    },
+    "link": {
+      "type": "string",
+      "description": "Optional URL with more information about the activity; may be an empty string",
+      "examples": ["https://expressjs.com/", ""]
+    },
+    "key": {
+      "type": "string",
+      "description": "Unique numeric identifier for the activity",
+      "pattern": "^[0-9]+$",
+      "examples": ["3943506", "1638604"]
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ActivityType": {
+      "type": "string",
+      "description": "Category of the activity",
+      "enum": [
+        "education",
+        "recreational",
+        "social",
+        "charity",
+        "cooking",
+        "relaxation",
+        "busywork"
+      ]
+    },
+    "ParticipantCount": {
+      "type": "integer",
+      "description": "Number of people needed for the activity",
+      "enum": [1, 2, 3, 4, 5, 6, 8]
+    }
+  }
+}

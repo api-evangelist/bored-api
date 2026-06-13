@@ -1,0 +1,26 @@
+[
+  {
+    "activity": "Learn Express.js",
+    "availability": 0.25,
+    "type": "education",
+    "participants": 1,
+    "price": 0.1,
+    "accessibility": "Few challenges",
+    "duration": "hours",
+    "kidFriendly": true,
+    "link": "https://expressjs.com/",
+    "key": "3943506"
+  },
+  {
+    "activity": "Contribute to open source",
+    "availability": 0.25,
+    "type": "education",
+    "participants": 1,
+    "price": 0,
+    "accessibility": "Few challenges",
+    "duration": "hours",
+    "kidFriendly": false,
+    "link": "https://github.com/explore",
+    "key": "7687030"
+  }
+]

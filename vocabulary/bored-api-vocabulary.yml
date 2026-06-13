@@ -1,0 +1,67 @@
+vocabulary:
+  - term: activity
+    definition: >
+      A human-readable string describing something to do. Returned as the
+      primary field in every Activity object.
+
+  - term: availability
+    definition: >
+      A decimal number between 0.0 and 1.0 indicating how easy it is to access
+      or set up an activity. 0.0 means rare or very difficult to access; 1.0
+      means universally available with no setup required.
+
+  - term: type
+    definition: >
+      A categorical label grouping activities by their general nature.
+    values:
+      education: Activities focused on learning a new skill or gaining knowledge
+      recreational: Leisure activities for fun and enjoyment
+      social: Activities best done with other people
+      charity: Activities that benefit others or the community
+      cooking: Food preparation and culinary activities
+      relaxation: Activities designed to reduce stress and promote rest
+      busywork: Simple tasks that keep hands or mind occupied
+
+  - term: participants
+    definition: >
+      The number of people required or recommended to enjoy the activity.
+      Valid values are 1, 2, 3, 4, 5, 6, or 8.
+
+  - term: price
+    definition: >
+      A decimal number between 0.0 and 1.0 representing relative cost.
+      0.0 means the activity is completely free; 1.0 means it is expensive
+      relative to other activities in the database.
+
+  - term: accessibility
+    definition: >
+      A human-readable label describing barriers to participation.
+    values:
+      "Few challenges": Accessible to most people with minimal barriers
+      "Some challenges": May require certain resources or physical ability
+      "Major challenges": Significant barriers such as cost, location, or physical demands
+
+  - term: duration
+    definition: >
+      A rough time estimate for completing the activity.
+    values:
+      minutes: Can be completed in under an hour
+      hours: Takes one to several hours
+      days: Spans one or more full days
+      weeks: A longer-term activity spanning multiple weeks
+
+  - term: kidFriendly
+    definition: >
+      Boolean flag indicating whether the activity is appropriate and safe
+      for children to participate in.
+
+  - term: link
+    definition: >
+      An optional URL providing more information, instructions, or resources
+      for the activity. May be an empty string when no link is available.
+
+  - term: key
+    definition: >
+      A unique numeric string identifier for a specific activity in the
+      Bored API database. Used to retrieve a specific activity via
+      GET /activity/{key}.
