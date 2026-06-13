@@ -1,0 +1,32 @@
+name: Bored API Rate Limits
+description: Rate limiting policies for the Bored API provided by The App Brewery.
+url: https://bored-api.appbrewery.com/
+created: '2026-06-13'
+modified: '2026-06-13'
+rateLimits:
+  - name: Standard Rate Limit
+    description: API requests are rate limited to 100 requests every 15 minutes. This applies globally to all endpoints with no authentication required.
+    requests: 100
+    period: 15 minutes
+    periodSeconds: 900
+    scope: global
+    authentication: none
+    enforcement: HTTP 429 Too Many Requests
+    notes: >
+      The rate limit is per IP address. As a free teaching tool with no authentication,
+      all requests from the same IP address count toward the shared 100 request per
+      15-minute limit. The API is provided by The App Brewery for educational purposes
+      and does not offer paid tiers or increased rate limits.
+endpoints:
+  - path: /random
+    method: GET
+    description: Returns a randomly selected activity
+    rateLimit: shared
+  - path: /filter
+    method: GET
+    description: Returns activities filtered by type and/or participants
+    rateLimit: shared
+  - path: /activity/{key}
+    method: GET
+    description: Returns the activity with the specified unique key
+    rateLimit: shared

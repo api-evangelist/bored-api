@@ -1,0 +1,36 @@
+name: Bored API FinOps
+description: Financial operations guidance for the Bored API. This is a free API with no cost considerations beyond operational infrastructure if self-hosting.
+url: https://bored-api.appbrewery.com/
+created: '2026-06-13'
+modified: '2026-06-13'
+summary: >
+  The Bored API is completely free with no licensing costs, no API keys, and no
+  paid tiers. The API is provided as a public educational service by The App Brewery.
+  Financial considerations are limited to self-hosting scenarios where teams run
+  their own instance of the open-source codebase (MIT licensed, available on GitHub).
+cost:
+  hosted:
+    monthly: 0
+    currency: USD
+    notes: No cost to use the hosted Bored API at bored-api.appbrewery.com
+  selfHosted:
+    notes: >
+      Self-hosting requires Node.js, Express.js, MongoDB, and a hosting platform
+      such as Heroku, Railway, or similar. Costs depend on chosen infrastructure
+      provider and usage volume. The source code is MIT licensed.
+    estimatedMonthly:
+      low: 0
+      high: 25
+      currency: USD
+      basis: Small MongoDB Atlas free tier + basic Heroku/Railway instance
+optimization:
+  - strategy: Client-side caching
+    description: Cache activity responses client-side to reduce redundant requests and stay within the 100 requests/15-min rate limit
+  - strategy: Batch filtering
+    description: Use the /filter endpoint with specific parameters to retrieve targeted results rather than calling /random repeatedly
+  - strategy: Self-hosting for high volume
+    description: For production applications needing more than 100 req/15min, clone the open-source MIT-licensed codebase and self-host
+risks:
+  - description: No SLA or uptime guarantee as this is a free teaching tool; do not rely on it for production-critical applications
+  - description: No paid tier available; high-volume use cases must self-host
+  - description: Service continuity depends on The App Brewery maintaining the hosted instance

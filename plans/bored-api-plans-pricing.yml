@@ -1,0 +1,26 @@
+name: Bored API Plans and Pricing
+description: Pricing plans for the Bored API provided by The App Brewery.
+url: https://bored-api.appbrewery.com/
+created: '2026-06-13'
+modified: '2026-06-13'
+plans:
+  - name: Free
+    description: The Bored API is completely free to use with no authentication required and no cost. It is provided as a teaching tool by The App Brewery for students learning web development and API integration.
+    url: https://bored-api.appbrewery.com/
+    price: 0
+    currency: USD
+    billing: none
+    authentication: none
+    rateLimits:
+      - requests: 100
+        period: 15 minutes
+        description: 100 requests per 15-minute window
+    features:
+      - Random activity endpoint
+      - Filter by activity type
+      - Filter by participant count
+      - Filter by price range
+      - Filter by accessibility level
+      - Activity lookup by unique key
+      - No API key required
+      - No registration required
