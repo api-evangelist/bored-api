@@ -1,7 +1,7 @@
 aid: bored-api
 name: Bored API
 description: Free REST API that suggests random activities to do when bored, filterable by type, number of participants, price range, and accessibility. A teaching tool by The App Brewery with no authentication required.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/bored-api/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -17,7 +17,7 @@ apis:
   - aid: bored-api:bored-api
     name: Bored API
     description: Suggests random activities to do when bored. Filter activities by type (education, recreational, social, charity, cooking, relaxation, busywork), participant count, price, and accessibility. No authentication required.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://bored-api.appbrewery.com/
     baseURL: https://bored-api.appbrewery.com
     tags:
