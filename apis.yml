@@ -39,6 +39,8 @@ apis:
       - type: FinOps
         url: finops/bored-api-finops.yml
 common:
+  - type: DomainSecurity
+    url: security/bored-api-domain-security.yml
   - type: Website
     url: https://bored-api.appbrewery.com/
   - type: Documentation
