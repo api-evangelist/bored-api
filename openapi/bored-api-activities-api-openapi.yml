@@ -1,0 +1,297 @@
+openapi: 3.0.3
+info:
+  title: Bored Activities API
+  description: 'Free REST API that suggests random activities to do when bored, filterable by type, number of participants, price range, and accessibility. A teaching tool by The App Brewery. No authentication required.
+
+    '
+  version: 1.0.0
+  contact:
+    name: The App Brewery
+    url: https://appbrewery.com/
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://bored-api.appbrewery.com
+  description: Production server
+tags:
+- name: Activities
+  description: Operations for discovering and retrieving activities
+paths:
+  /random:
+    get:
+      operationId: getRandomActivity
+      summary: Get a random activity
+      description: Returns a single randomly selected activity from the database.
+      tags:
+      - Activities
+      responses:
+        '200':
+          description: A random activity object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activity'
+              example:
+                activity: Learn Express.js
+                availability: 0.25
+                type: education
+                participants: 1
+                price: 0.1
+                accessibility: Few challenges
+                duration: hours
+                kidFriendly: true
+                link: https://expressjs.com/
+                key: '3943506'
+        '429':
+          description: Rate limit exceeded (100 requests per 15 minutes)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /filter:
+    get:
+      operationId: filterActivities
+      summary: Filter activities
+      description: 'Returns an array of activities that match the provided filter criteria. Multiple filters can be combined. Returns an empty array if no activities match.
+
+        '
+      tags:
+      - Activities
+      parameters:
+      - name: type
+        in: query
+        required: false
+        description: Filter by activity type
+        schema:
+          $ref: '#/components/schemas/ActivityType'
+      - name: participants
+        in: query
+        required: false
+        description: Filter by number of participants
+        schema:
+          $ref: '#/components/schemas/ParticipantCount'
+      - name: price
+        in: query
+        required: false
+        description: Filter by exact price (decimal 0.0–1.0)
+        schema:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+      - name: minPrice
+        in: query
+        required: false
+        description: Minimum price (decimal 0.0–1.0)
+        schema:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+      - name: maxPrice
+        in: query
+        required: false
+        description: Maximum price (decimal 0.0–1.0)
+        schema:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+      - name: availability
+        in: query
+        required: false
+        description: Filter by exact availability (decimal 0.0–1.0)
+        schema:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+      - name: minAvailability
+        in: query
+        required: false
+        description: Minimum availability (decimal 0.0–1.0)
+        schema:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+      - name: maxAvailability
+        in: query
+        required: false
+        description: Maximum availability (decimal 0.0–1.0)
+        schema:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+      responses:
+        '200':
+          description: Array of activities matching the filter criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activity'
+              example:
+              - activity: Contribute to open source
+                availability: 0.25
+                type: education
+                participants: 1
+                price: 0
+                accessibility: Few challenges
+                duration: hours
+                kidFriendly: false
+                link: https://github.com/explore
+                key: '7687030'
+        '429':
+          description: Rate limit exceeded (100 requests per 15 minutes)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /activity/{key}:
+    get:
+      operationId: getActivityByKey
+      summary: Get activity by key
+      description: Returns a specific activity identified by its unique key.
+      tags:
+      - Activities
+      parameters:
+      - name: key
+        in: path
+        required: true
+        description: Unique activity identifier
+        schema:
+          type: string
+          example: '3943506'
+      responses:
+        '200':
+          description: The activity with the given key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activity'
+              example:
+                activity: Learn Express.js
+                availability: 0.25
+                type: education
+                participants: 1
+                price: 0.1
+                accessibility: Few challenges
+                duration: hours
+                kidFriendly: true
+                link: https://expressjs.com/
+                key: '3943506'
+        '404':
+          description: Activity not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limit exceeded (100 requests per 15 minutes)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Activity:
+      type: object
+      description: An activity suggestion with metadata
+      required:
+      - activity
+      - availability
+      - type
+      - participants
+      - price
+      - accessibility
+      - duration
+      - kidFriendly
+      - link
+      - key
+      properties:
+        activity:
+          type: string
+          description: Human-readable description of the activity
+          example: Learn Express.js
+        availability:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: 'Availability score from 0.0 (rare/difficult to access) to 1.0 (universally available). Represents how easy the activity is to access or set up.
+
+            '
+          example: 0.25
+        type:
+          $ref: '#/components/schemas/ActivityType'
+        participants:
+          $ref: '#/components/schemas/ParticipantCount'
+        price:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: 'Relative cost from 0.0 (free) to 1.0 (expensive). Does not represent a specific currency amount.
+
+            '
+          example: 0.1
+        accessibility:
+          type: string
+          description: Human-readable description of accessibility level
+          example: Few challenges
+        duration:
+          type: string
+          description: Rough time estimate for the activity
+          enum:
+          - minutes
+          - hours
+          - days
+          - weeks
+          example: hours
+        kidFriendly:
+          type: boolean
+          description: Whether the activity is appropriate for children
+          example: true
+        link:
+          type: string
+          description: Optional URL with more information about the activity (may be empty string)
+          example: https://expressjs.com/
+        key:
+          type: string
+          description: Unique numeric identifier for the activity
+          example: '3943506'
+    ParticipantCount:
+      type: integer
+      description: Number of people needed for the activity
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 8
+      example: 1
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+          example: Too many requests, please slow down
+    ActivityType:
+      type: string
+      description: Category of the activity
+      enum:
+      - education
+      - recreational
+      - social
+      - charity
+      - cooking
+      - relaxation
+      - busywork
+      example: education
