@@ -1,7 +1,19 @@
 aid: bored-api
 name: Bored API
 description: Free REST API that suggests random activities to do when bored, filterable by type, number of participants, price range, and accessibility. A teaching tool by The App Brewery with no authentication required.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Free · Open access
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bored-api.png
 url: https://raw.githubusercontent.com/api-evangelist/bored-api/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -14,30 +26,24 @@ tags:
   - Lifestyle
   - Free
 apis:
-  - aid: bored-api:bored-api
-    name: Bored API
-    description: Suggests random activities to do when bored. Filter activities by type (education, recreational, social, charity, cooking, relaxation, busywork), participant count, price, and accessibility. No authentication required.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://bored-api.appbrewery.com/
-    baseURL: https://bored-api.appbrewery.com
-    tags:
-      - Activities
-      - Boredom
-      - Random
-      - Entertainment
-      - Lifestyle
-      - Free
-    properties:
-      - type: Documentation
-        url: https://bored-api.appbrewery.com/
-      - type: OpenAPI
-        url: openapi/bored-api-openapi.yml
-      - type: Plans
-        url: plans/bored-api-plans-pricing.yml
-      - type: RateLimits
-        url: rate-limits/bored-api-rate-limits.yml
-      - type: FinOps
-        url: finops/bored-api-finops.yml
+- aid: bored-api:bored-api-activities-api
+  name: Bored API Activities API
+  description: Operations for discovering and retrieving activities
+  humanURL: https://bored-api.appbrewery.com/
+  baseURL: https://bored-api.appbrewery.com
+  tags:
+  - Activities
+  properties:
+  - type: OpenAPI
+    url: openapi/bored-api-activities-api-openapi.yml
+  - type: Documentation
+    url: https://bored-api.appbrewery.com/
+  - type: Plans
+    url: plans/bored-api-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/bored-api-rate-limits.yml
+  - type: FinOps
+    url: finops/bored-api-finops.yml
 common:
   - type: AgenticAccess
     url: agentic-access/bored-api-agentic-access.yml
