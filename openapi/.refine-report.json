@@ -1,0 +1,14 @@
+{
+  "provider": "bored-api",
+  "sources": [
+    "bored-api-activities-api-openapi.yml"
+  ],
+  "outputs": [
+    "bored-api-activities-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
