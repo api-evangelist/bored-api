@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bored Activities API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Activities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a random activity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bored-api.appbrewery.com/random"
+          },
+          "docs": "Returns a single randomly selected activity from the database."
+        },
+        {
+          "info": {
+            "name": "Filter activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bored-api.appbrewery.com/filter",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by activity type"
+              },
+              {
+                "name": "participants",
+                "value": "",
+                "type": "query",
+                "description": "Filter by number of participants"
+              },
+              {
+                "name": "price",
+                "value": "",
+                "type": "query",
+                "description": "Filter by exact price (decimal 0.0–1.0)"
+              },
+              {
+                "name": "minPrice",
+                "value": "",
+                "type": "query",
+                "description": "Minimum price (decimal 0.0–1.0)"
+              },
+              {
+                "name": "maxPrice",
+                "value": "",
+                "type": "query",
+                "description": "Maximum price (decimal 0.0–1.0)"
+              },
+              {
+                "name": "availability",
+                "value": "",
+                "type": "query",
+                "description": "Filter by exact availability (decimal 0.0–1.0)"
+              },
+              {
+                "name": "minAvailability",
+                "value": "",
+                "type": "query",
+                "description": "Minimum availability (decimal 0.0–1.0)"
+              },
+              {
+                "name": "maxAvailability",
+                "value": "",
+                "type": "query",
+                "description": "Maximum availability (decimal 0.0–1.0)"
+              }
+            ]
+          },
+          "docs": "Returns an array of activities that match the provided filter criteria. Multiple filters can be combined. Returns an empty array if no activities match.\n"
+        },
+        {
+          "info": {
+            "name": "Get activity by key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bored-api.appbrewery.com/activity/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Unique activity identifier"
+              }
+            ]
+          },
+          "docs": "Returns a specific activity identified by its unique key."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
