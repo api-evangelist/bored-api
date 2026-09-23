@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Bored Activities API
-  description: 'Free REST API that suggests random activities to do when bored, filterable by type, number of participants, price range, and accessibility. A teaching tool by The App Brewery. No authentication required.
-
-    '
+  description: Free REST API that suggests random activities to do when bored, filterable by type, number of participants, price range, and accessibility. A teaching tool by The App Brewery. No authentication required.
   version: 1.0.0
   contact:
     name: The App Brewery
@@ -53,9 +51,7 @@ paths:
     get:
       operationId: filterActivities
       summary: Filter activities
-      description: 'Returns an array of activities that match the provided filter criteria. Multiple filters can be combined. Returns an empty array if no activities match.
-
-        '
+      description: Returns an array of activities that match the provided filter criteria. Multiple filters can be combined. Returns an empty array if no activities match.
       tags:
       - Activities
       parameters:
@@ -198,6 +194,18 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    ParticipantCount:
+      type: integer
+      description: Number of people needed for the activity
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 8
+      example: 1
     Activity:
       type: object
       description: An activity suggestion with metadata
@@ -264,18 +272,6 @@ components:
           type: string
           description: Unique numeric identifier for the activity
           example: '3943506'
-    ParticipantCount:
-      type: integer
-      description: Number of people needed for the activity
-      enum:
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-      - 6
-      - 8
-      example: 1
     Error:
       type: object
       properties:
