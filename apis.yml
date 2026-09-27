@@ -42,7 +42,6 @@ apis:
   name: Bored API Activities API
   description: Operations for discovering and retrieving activities
   humanURL: https://bored-api.appbrewery.com/
-  baseURL: https://bored-api.appbrewery.com
   tags:
   - Activities
   properties:

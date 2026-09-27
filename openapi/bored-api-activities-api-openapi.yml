@@ -194,18 +194,25 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    ParticipantCount:
-      type: integer
-      description: Number of people needed for the activity
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+          example: Too many requests, please slow down
+    ActivityType:
+      type: string
+      description: Category of the activity
       enum:
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-      - 6
-      - 8
-      example: 1
+      - education
+      - recreational
+      - social
+      - charity
+      - cooking
+      - relaxation
+      - busywork
+      example: education
     Activity:
       type: object
       description: An activity suggestion with metadata
@@ -272,22 +279,15 @@ components:
           type: string
           description: Unique numeric identifier for the activity
           example: '3943506'
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message
-          example: Too many requests, please slow down
-    ActivityType:
-      type: string
-      description: Category of the activity
+    ParticipantCount:
+      type: integer
+      description: Number of people needed for the activity
       enum:
-      - education
-      - recreational
-      - social
-      - charity
-      - cooking
-      - relaxation
-      - busywork
-      example: education
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 8
+      example: 1
