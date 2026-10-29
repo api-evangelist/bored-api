@@ -66,35 +66,145 @@
 
 Free REST API that suggests random activities to do when bored, filterable by type, number of participants, price range, and accessibility. A teaching tool by The App Brewery with no authentication required.
 
-**Documentation:** https://bored-api.appbrewery.com/
+**Areas:** Activities · Boredom · Random · Entertainment · Lifestyle · Free
 
-## Endpoints
+## Bored API on APIs.io
 
-- `GET /random` — Returns a randomly selected activity
-- `GET /filter` — Returns activities filtered by type and/or participant count
-- `GET /activity/{key}` — Returns the activity with the specified unique key
+Everything profiled for Bored API is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bored-api/](https://apis.io/providers/bored-api/)** — or go straight to one of the APIs or properties below.
 
-## Activity Types
+### APIs (1)
 
-education, recreational, social, charity, cooking, relaxation, busywork
+- [Bored API Activities API](https://apis.io/apis/bored-api/bored-api-activities-api/) — Operations for discovering and retrieving activities
 
-## Response Fields
+### Published properties
 
-- `activity` — Description of the activity
-- `availability` — Availability score (0.0–1.0)
-- `type` — Category of activity
-- `participants` — Number of participants (1, 2, 3, 4, 5, 6, 8)
-- `price` — Cost estimate (0.0–1.0 scale)
-- `accessibility` — Accessibility level description
-- `duration` — Time scale (minutes, hours, days)
-- `kidFriendly` — Whether activity is appropriate for children
-- `link` — Optional external resource link
-- `key` — Unique activity identifier
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Rate Limits
+#### Agentic access (1)
 
-100 requests per 15 minutes. No authentication required.
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## License
+- [Bored Api Agentic Access](https://apis.io/agentic-access/bored-api/bored-api-agentic-access/)
 
-Source code: MIT License (https://github.com/drewthoennes/Bored-API)
+#### JSON Schema (1)
+
+The data models the API reads and writes.
+
+- [Activity](https://apis.io/schemas/bored-api/activity/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Bored Api Context](https://apis.io/jsonld/bored-api/bored-api-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Bored Api Vocabulary](https://apis.io/vocabularies/bored-api/bored-api-vocabulary/)
+
+#### Examples (1)
+
+Example requests and responses.
+
+- [Random Activity Response](https://apis.io/examples/bored-api/random-activity-response/)
+
+#### Collections (1)
+
+Postman and Open Collection request collections.
+
+- [Bored Activities API](https://apis.io/collections/bored-api/open-bored-api-activities-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Bored API — jsonschema rules](https://apis.io/rules/bored-api/bored-api-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Bored Api Domain Security](https://apis.io/security/bored-api/bored-api-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Bored Api Plans Pricing](https://apis.io/plans/bored-api/bored-api-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Bored Api Rate Limits](https://apis.io/rate-limits/bored-api/bored-api-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Bored Api Finops](https://apis.io/finops/bored-api/bored-api-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://bored-api.appbrewery.com/)
+- [Documentation](https://bored-api.appbrewery.com/)
+- [Pricing](https://bored-api.appbrewery.com/)
+- [Blog](https://appbrewery.com/)
+- [Status](https://bored-api.appbrewery.com/)
+
+## API Evangelist rating
+
+**Kin Score 28.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 53.8 |
+| Contract governance | 9.8 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 15.8 |
+
+**Agent readiness 30.3** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bored-api/](https://apis.io/providers/bored-api/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bored API: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bored-api/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
